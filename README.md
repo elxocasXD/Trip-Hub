@@ -8,6 +8,8 @@ Trip Hub Premium works on:
 - Da Hood Aim Trainer
 - Hood Customs
 
+Don't have Trip Hub Premium yet? buy here:
+hhtps://triphub.ga/invite/
 
 # Trip Hub Free Loader
 
