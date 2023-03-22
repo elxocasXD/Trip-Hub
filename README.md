@@ -3,6 +3,8 @@
 ```lua
 loadstring(game:HttpGet('https://raw.githubusercontent.com/elxocasXD/Trip-Hub/main/Premium%20Loader.lua'))()
 ```
+Trip Hub Premium works on:
+- Hood Modded
 
 # Trip Hub Free Loader
 
