@@ -9,7 +9,7 @@ Trip Hub Premium works on:
 - Hood Customs
 
 Don't have Trip Hub Premium yet? buy here:
-hhtps://triphub.ga/invite/
+htps://triphub.ga/invite/
 
 # Trip Hub Free Loader
 
