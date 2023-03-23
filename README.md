@@ -1,6 +1,6 @@
 # Trip Hub Premium Loader
 
-![XD AST](https://triphub.ga/img/Premium.png)
+!(https://triphub.ga/img/Premium.png)
 
 ```lua
 loadstring(game:HttpGet('https://raw.githubusercontent.com/elxocasXD/Trip-Hub/main/Premium%20Loader.lua'))()
