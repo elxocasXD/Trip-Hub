@@ -1,6 +1,6 @@
 # Trip Hub Premium Loader
 
-![Trip Hub Premium Image](https://triphub.ga/img/Premium.png "Título opcional")
+![Trip Hub Premium Image](https://i.imgur.com/ttxHEDQ.png)
 
 
 ```lua
