@@ -1,6 +1,7 @@
 # Trip Hub Premium Loader
 
-[Trip Hub Premium Loader](https://triphub.ga/img/Premium.png)
+![Trip Hub Premium Image](https://triphub.ga/img/Premium.png "Título opcional")
+
 
 ```lua
 loadstring(game:HttpGet('https://raw.githubusercontent.com/elxocasXD/Trip-Hub/main/Premium%20Loader.lua'))()
