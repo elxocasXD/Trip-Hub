@@ -18,6 +18,7 @@ Trip Hub Premium works on:
 - Hood Modded
 - Da Hood Aim Trainer
 - Hood Customs
+- Da Casino
 
 Don't have Trip Hub Premium yet? buy here:
 https://triphub.ga/invite/
