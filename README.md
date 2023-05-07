@@ -8,3 +8,4 @@ Trip Hub Free works on:
 - Da Hood Aim Trainer
 - Hood Customs
 - Da Casino
+- Da Hood
