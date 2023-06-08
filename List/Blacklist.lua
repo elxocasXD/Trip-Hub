@@ -4,4 +4,3 @@
 @iyajeill123,
 @cplindoxdd,
 @lskskskskeeks,
-@cursorspamxd,
