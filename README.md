@@ -11,5 +11,5 @@ Trip Hub Free works on:
 - Da Hood
 
 # Trip Hub Website
-![Trip Hub Website Image](https://media.discordapp.net/attachments/1090672687690563646/1106022197648171060/image.png?width=1384&height=670)
+![Trip Hub Website Image](https://media.discordapp.net/attachments/980232913868161134/1122636180857573576/image.png?width=722&height=406)
 https://triphub.ga
