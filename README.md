@@ -12,4 +12,4 @@ Trip Hub Free works on:
 
 # Trip Hub Website
 ![Trip Hub Website Image](https://media.discordapp.net/attachments/980232913868161134/1122636180857573576/image.png?width=722&height=406)
-https://triphub.ga
+https://triphub.000.pe/
