@@ -14,10 +14,13 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/elxocasXD/Trip-Hub/ma
 ```
 Trip Hub Free works on:
 - Hood Modded
-- Da Hood Aim Trainer
 - Hood Customs
+- Hood Aim
 - Da Casino
+- Da Uphill
+- Da Downhill
 - Da Hood
+  
 
 # Trip Hub Website
 ![Trip Hub Website Image](https://github.com/elxocasXD/Trip-Hub/blob/main/images/Website.png?raw=true)
