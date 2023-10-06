@@ -1,5 +1,5 @@
 # Trip Hub Free Loader
-![Trip Hub Image](https://images-ext-2.discordapp.net/external/dfAX0JX0XZTNbxg_Ohix0Bqi091wtLIruu0DDm9W2C8/http/triphub.000.pe/images/TripHub/Purple.png)
+![Trip Hub Image](https://github.com/elxocasXD/Trip-Hub/blob/main/images/Trip%20Hub%20UI.png?raw=true)
 ```lua
 --[[
 ████████╗██████╗ ██╗██████╗     ██╗  ██╗██╗   ██╗██████╗     ██╗      ██████╗  █████╗ ██████╗ ███████╗██████╗ 
