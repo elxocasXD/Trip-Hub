@@ -1,5 +1,5 @@
 # Trip Hub Free Loader
-![Trip Hub Image](https://images-ext-2.discordapp.net/external/dfAX0JX0XZTNbxg_Ohix0Bqi091wtLIruu0DDm9W2C8/http/triphub.000.pe/images/TripHub/Purple.png)
+![Trip Hub Image](https://github.com/elxocasXD/Trip-Hub/blob/main/images/Trip%20Hub%20UI.png?raw=true)
 ```lua
 --[[
 ████████╗██████╗ ██╗██████╗     ██╗  ██╗██╗   ██╗██████╗     ██╗      ██████╗  █████╗ ██████╗ ███████╗██████╗ 
@@ -23,5 +23,5 @@ Trip Hub Free works on:
   
 
 # Trip Hub Website
-![Trip Hub Website Image](https://github.com/elxocasXD/Trip-Hub/blob/main/images/Website.png?raw=true)
+![Trip Hub Website Image](https://github.com/elxocasXD/Trip-Hub/blob/main/images/Trip%20Hub%20Website.png?raw=true)
 https://triphubscript.000webhostapp.com
