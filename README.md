@@ -1,5 +1,5 @@
 # Trip Hub Free Loader
-![Trip Hub Image](https://github.com/elxocasXD/Trip-Hub/blob/main/images/TripHubUI.jpg?raw=true)
+![Trip Hub Image](https://triphubstorage.000webhostapp.com/Image/UI.png)
 ```lua
 --[[
 ████████╗██████╗ ██╗██████╗     ██╗  ██╗██╗   ██╗██████╗     ██╗      ██████╗  █████╗ ██████╗ ███████╗██████╗ 
