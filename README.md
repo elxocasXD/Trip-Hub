@@ -20,7 +20,7 @@ Trip Hub Free works on:
 - Da Uphill
 - Da Downhill
 - Da Hood
-  
+- Da Bank (New)
 
 # Trip Hub Website
 ![Trip Hub Website Image](https://github.com/elxocasXD/Trip-Hub/blob/main/images/Trip%20Hub%20Website.png?raw=true)
