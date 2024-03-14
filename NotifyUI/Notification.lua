@@ -1,3 +1,4 @@
+--https://github.com/AbstractPoo
 local rs = game:GetService("RunService")
 local ts = game:GetService("TweenService")
 
@@ -47,10 +48,6 @@ local function object(class, properties)
 		end,
 	})
 end
-
---[[if not ((rs:IsStudio() and game.Players.LocalPlayer.PlayerGui) or game.CoreGui):FindFirstChild("Abstract Notifications") then
-
-end]]
 
 local gui = object("ScreenGui", {
 	Parent = (rs:IsStudio() and game.Players.LocalPlayer.PlayerGui) or game.CoreGui
