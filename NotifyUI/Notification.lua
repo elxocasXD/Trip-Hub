@@ -90,10 +90,13 @@ function notifications:notify(options)
 		Size = UDim2.fromOffset(400, (callbacksBool and 100) or 56),
 		Position = UDim2.new(1, -20, 1, -10),
 		AnchorPoint = Vector2.new(1, 1),
-		BackgroundColor3 = theme.Main,
 		Visible = false,
-		BackgroundTransparency = 1 --
+		BackgroundTransparency = 1,
 	}):round()
+	
+	game:GetService('RunService').Heartbeat:Connect(function()
+		mainFrame.BackgroundColor3 = theme.Main
+	end)	
 
 	local content = mainFrame:object("Frame", {
 		Size = UDim2.new(1, 0, 1, ((callbacksBool and -44) or 0)),
