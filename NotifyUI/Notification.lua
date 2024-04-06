@@ -69,6 +69,12 @@ local notifications = {
 	closeOpened = nil
 }
 
+if getgenv().TripHub_Theme_Background then
+	notifications.colorSchemes.dark.Main = getgenv().TripHub_Theme_Background
+else
+	notifications.colorSchemes.dark.Main = Color3.fromRGB(40, 40, 45)
+end
+
 function notifications:notify(options)
 	local theme = self.colorSchemes[notifications.theme]
 	local callbacksBool = options.Accept or options.Dismiss
