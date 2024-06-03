@@ -1,3 +1,9 @@
+--Ok
+
+
+
+
+
 local rs = game:GetService("RunService")
 local ts = game:GetService("TweenService")
 
@@ -86,7 +92,7 @@ function notifications:notify(options)
 	end
 
 	local mainFrame = gui:object("Frame", {
-		Size = UDim2.fromOffset(400, (callbacksBool and 100) or 56),
+		Size = UDim2.fromOffset(300, (callbacksBool and 100) or 56),
 		Position = UDim2.new(1, -20, 1, -10),
 		AnchorPoint = Vector2.new(1, 1),
 		Visible = false,
@@ -237,7 +243,7 @@ function notifications:notify(options)
 
 	-- Adjust the mainFrame size based on the description size
 	if description then
-		mainFrame.Size = UDim2.fromOffset(math.clamp(70 + description.TextBounds.X, 230, 400), description.AbsoluteSize.Y + 60 + (callbacksBool and 44 or 0))
+		mainFrame.Size = UDim2.fromOffset(math.clamp(70 + description.TextBounds.X, 230, 300), description.AbsoluteSize.Y + 60 + (callbacksBool and 44 or 0))
 	end
 
 	description.Size = UDim2.new(1, -70, 0, description and description.TextBounds.Y or 0)
