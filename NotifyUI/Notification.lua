@@ -1,4 +1,3 @@
---https://github.com/AbstractPoo
 local rs = game:GetService("RunService")
 local ts = game:GetService("TweenService")
 
@@ -7,7 +6,7 @@ local function object(class, properties)
 
 	pcall(function()
 		localObject.BorderSizePixel = 0
-		localObject.BackgroundColor3 = Color3.fromRGB(255,255,255)
+		localObject.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		localObject.AutoButtonColor = false
 	end)
 
@@ -123,7 +122,7 @@ function notifications:notify(options)
 		BackgroundTransparency = 1,
 		Text = options.Title,
 		RichText = true,
-		TextTransparency = 1 --
+		TextTransparency = 1
 	})
 
 	local description; if options.Description then
@@ -131,16 +130,19 @@ function notifications:notify(options)
 			TextColor3 = theme.SecondaryText,
 			Font = Enum.Font.SourceSans,
 			TextSize = 18,
-			Position = UDim2.new(0, 60, 1, -10),
-			Size = UDim2.new(1, -70, 1, 0),
+			Position = UDim2.new(0, 60, 0, 35),
+			Size = UDim2.new(1, -70, 0, 0), -- Size will be set later
 			TextXAlignment = Enum.TextXAlignment.Left,
 			BackgroundTransparency = 1,
-			AnchorPoint = Vector2.new(0, 1),
 			Text = options.Description,
 			TextWrapped = true,
 			RichText = true,
-			TextTransparency = 1 --
+			TextTransparency = 1
 		})
+
+		-- Calculate the required size for the description
+		local descriptionHeight = game:GetService("TextService"):GetTextSize(options.Description, 18, Enum.Font.SourceSans, Vector2.new(description.AbsoluteSize.X, math.huge)).Y
+		description.Size = UDim2.new(1, -70, 0, descriptionHeight)
 	end
 
 	local callbacksContainer; if callbacksBool then 
@@ -149,13 +151,13 @@ function notifications:notify(options)
 			AnchorPoint = Vector2.new(0, 1),
 			Position = UDim2.fromScale(0, 1),
 			BackgroundColor3 = theme.Secondary,
-			BackgroundTransparency = 1 --
+			BackgroundTransparency = 1
 		}):round()
 
 		local roundCorrection = callbacksContainer:object("Frame", {
 			Size = UDim2.fromScale(1, 0.5),
 			BackgroundColor3 = theme.Secondary,
-			BackgroundTransparency = 1 --
+			BackgroundTransparency = 1
 		})
 	end
 
@@ -172,8 +174,8 @@ function notifications:notify(options)
 			Font = Enum.Font.SourceSans,
 			TextSize = 18,
 			Text = options.Accept.Text or "Yes",
-			BackgroundTransparency = 1, --
-			TextTransparency = 1 --
+			BackgroundTransparency = 1,
+			TextTransparency = 1
 		}):round()
 
 		if acceptButton.TextBounds.X > 100 then
@@ -197,8 +199,8 @@ function notifications:notify(options)
 			Font = Enum.Font.SourceSans,
 			TextSize = 18,
 			Text = options.Dismiss.Text or "No",
-			BackgroundTransparency = 1, --
-			TextTransparency = 1 --
+			BackgroundTransparency = 1,
+			TextTransparency = 1
 		}):round()
 
 		if dismissButton.TextBounds.X > 100 then
@@ -227,19 +229,18 @@ function notifications:notify(options)
 			task.wait(0.1)
 			mainFrame:tween{BackgroundTransparency = 1, Position = UDim2.new(1, -20, 1, -10)}
 			task.wait(0.25)
-			mainFrame.AbsoluteObject:Destroy()
+			mainFrame:Destroy()
 		end)
 	end
 
 	self.closeOpened = close
 
-	if options.Description and description.TextBounds.Y > 18 then
-		mainFrame.Size = UDim2.fromOffset(mainFrame.AbsoluteSize.X, description.TextBounds.Y + (38 + ((callbacksBool and 44) or 0)))
+	-- Adjust the mainFrame size based on the description size
+	if description then
+		mainFrame.Size = UDim2.fromOffset(math.clamp(70 + description.TextBounds.X, 230, 400), description.AbsoluteSize.Y + 60 + (callbacksBool and 44 or 0))
 	end
 
-	mainFrame.Size = UDim2.fromOffset(math.clamp(math.max((((acceptButton and acceptButton.AbsoluteSize.X) or 100) + ((dismissButton and dismissButton.AbsoluteSize.X) or 100) + 30) or 230, 70 + description.TextBounds.X), 230, 400), mainFrame.AbsoluteSize.Y)
-
-	description.Size = UDim2.new(1, -70, 0, description.TextBounds.Y)
+	description.Size = UDim2.new(1, -70, 0, description and description.TextBounds.Y or 0)
 
 	if options.Accept and options.Dismiss then
 		acceptButton.Position = UDim2.new(0.5, 5, 0.5, 0)
