@@ -1,6 +1,6 @@
 local rs = game:GetService("RunService")
 local ts = game:GetService("TweenService")
-
+print("New Version")
 local function object(class, properties)
     local localObject = Instance.new(class)
 
