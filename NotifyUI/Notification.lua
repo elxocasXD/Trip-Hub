@@ -27,7 +27,7 @@ local function object(class, properties)
     end
 
     function methods:tween(mutations)
-        ts:Create(localObject, TweenInfo.new(0.25), mutations):Play()
+        ts:Create(localObject, TweenInfo.new(0.3), mutations):Play()
     end
 
     methods.AbsoluteObject = localObject
@@ -269,33 +269,24 @@ function notifications:notify(options)
     end
 
     mainFrame.Visible = true
+    mainFrame:tween{
+        BackgroundTransparency = 0,
+        Position = UDim2.new(1, -20, 1, -10)
+    }
 
-    spawn(function()
-        mainFrame:tween{
-            BackgroundTransparency = 0,
-            Position = UDim2.new(1, -20, 1, -20)
-        }
-        task.wait(0.1)
-        if callbacksContainer then
-            callbacksContainer:tween{BackgroundTransparency = 0}
-        end
-        task.wait(0.15)
-        icon:tween{ImageTransparency = 0}
-        title:tween{TextTransparency = 0}
-        if description then description:tween{TextTransparency = 0} end
-        if acceptButton then
-            acceptButton:tween{BackgroundTransparency = 0, TextTransparency = 0}
-        end
-        if dismissButton then
-            dismissButton:tween{
-                BackgroundTransparency = 0,
-                TextTransparency = 0
-            }
-        end
-        if options.Length then
-            task.wait(options.Length)
-            if not closing then close() end
-        end
+    icon:tween{ImageTransparency = 0}
+    title:tween{TextTransparency = 0}
+    if description then description:tween{TextTransparency = 0} end
+    if acceptButton then
+        acceptButton:tween{BackgroundTransparency = 0, TextTransparency = 0}
+    end
+    if dismissButton then
+        dismissButton:tween{BackgroundTransparency = 0, TextTransparency = 0}
+    end
+
+    task.spawn(function()
+        task.wait(options.Length or 4)
+        if not closing then close() end
     end)
 end
 
