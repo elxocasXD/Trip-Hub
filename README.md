@@ -1,4 +1,4 @@
-# Trip Hub Loader
+# Trip Hub Loader 🚀
 ![Trip Hub Image](https://triphubscript.000webhostapp.com/img/Website/Loader.png)
 ```lua
 --[[
@@ -13,12 +13,12 @@
 loadstring(game:HttpGet('https://raw.githubusercontent.com/elxocasXD/Trip-Hub/main/Free%20Loader.lua'))()
 ```
 
-# Key System
+# Key System 🔑
 ![Trip Hub Image](https://triphubscript.000webhostapp.com/img/Website/KeySystemLoader.png)
 
 [Key System Tutorial](https://www.youtube.com/watch?v=mkRQHeuHBn8)
 
-# UI
+# UI 
 ![Trip Hub Image](https://triphubscript.000webhostapp.com/img/Website/TripHubKavo.png)
 
 # Social
