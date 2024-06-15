@@ -1,6 +1,6 @@
 local rs = game:GetService("RunService")
 local ts = game:GetService("TweenService")
-
+print("New Version")
 local function object(class, properties)
     local localObject = Instance.new(class)
 
@@ -21,13 +21,12 @@ local function object(class, properties)
 
     function methods:round(radius)
         radius = radius or 4
-        object("UICorner",
-               {Parent = localObject, CornerRadius = UDim.new(0, radius)})
+        object("UICorner", {Parent = localObject, CornerRadius = UDim.new(0, radius)})
         return methods
     end
 
     function methods:tween(mutations)
-        ts:Create(localObject, TweenInfo.new(0.3), mutations):Play()
+        ts:Create(localObject, TweenInfo.new(0.25), mutations):Play()
     end
 
     methods.AbsoluteObject = localObject
@@ -39,8 +38,7 @@ local function object(class, properties)
 end
 
 local gui = object("ScreenGui", {
-    Parent = (rs:IsStudio() and game.Players.LocalPlayer.PlayerGui) or
-        game.CoreGui
+    Parent = (rs:IsStudio() and game.Players.LocalPlayer.PlayerGui) or game.CoreGui
 })
 
 local notifications = {
@@ -90,8 +88,7 @@ function notifications:notify(options)
     })
 
     local icon = content:object("ImageLabel", {
-        Image = (options.Icon and ("rbxassetid://" .. tostring(options.Icon))) or
-            "rbxassetid://6031071053",
+        Image = (options.Icon and ("rbxassetid://" .. tostring(options.Icon))) or "rbxassetid://6031071053",
         BackgroundTransparency = 1,
         ImageColor3 = theme.Icon,
         AnchorPoint = Vector2.new(0, 0.5),
@@ -131,9 +128,9 @@ function notifications:notify(options)
 
         -- Calculate the required size for the description
         local descriptionHeight = game:GetService("TextService"):GetTextSize(
-                                      options.Description, 18,
-                                      Enum.Font.SourceSans, Vector2.new(
-                                          description.AbsoluteSize.X, math.huge)).Y
+            options.Description, 18,
+            Enum.Font.SourceSans, Vector2.new(
+                description.AbsoluteSize.X, math.huge)).Y
         description.Size = UDim2.new(1, -70, 0, descriptionHeight)
     end
 
@@ -173,8 +170,7 @@ function notifications:notify(options)
         }):round()
 
         if acceptButton.TextBounds.X > 100 then
-            acceptButton.Size = UDim2.new(0, acceptButton.TextBounds.X + 10,
-                                          0.5, 0)
+            acceptButton.Size = UDim2.new(0, acceptButton.TextBounds.X + 10, 0.5, 0)
         end
 
         acceptButton.MouseButton1Click:connect(function()
@@ -200,8 +196,7 @@ function notifications:notify(options)
         }):round()
 
         if dismissButton.TextBounds.X > 100 then
-            dismissButton.Size = UDim2.new(0, dismissButton.TextBounds.X + 10,
-                                           0.5, 0)
+            dismissButton.Size = UDim2.new(0, dismissButton.TextBounds.X + 10, 0.5, 0)
         end
 
         dismissButton.MouseButton1Click:connect(function()
@@ -213,6 +208,7 @@ function notifications:notify(options)
     local closing = false
 
     close = function()
+        if closing then return end
         closing = true
         self.closeOpened = nil
         spawn(function()
@@ -243,7 +239,9 @@ function notifications:notify(options)
                 Position = UDim2.new(1, -20, 1, -10)
             }
             task.wait(0.25)
-            mainFrame:Destroy()
+            if mainFrame and mainFrame.Parent then
+                mainFrame:Destroy()
+            end
         end)
     end
 
@@ -251,15 +249,11 @@ function notifications:notify(options)
 
     -- Adjust the mainFrame size based on the description size
     if description then
-        mainFrame.Size = UDim2.fromOffset(math.clamp(70 +
-                                                         description.TextBounds
-                                                             .X, 230, 300),
-                                          description.AbsoluteSize.Y + 60 +
-                                              (callbacksBool and 44 or 0))
+        mainFrame.Size = UDim2.fromOffset(math.clamp(70 + description.TextBounds.X, 230, 300),
+                                          description.AbsoluteSize.Y + 60 + (callbacksBool and 44 or 0))
     end
 
-    description.Size = UDim2.new(1, -70, 0,
-                                 description and description.TextBounds.Y or 0)
+    description.Size = UDim2.new(1, -70, 0, description and description.TextBounds.Y or 0)
 
     if options.Accept and options.Dismiss then
         acceptButton.Position = UDim2.new(0.5, 5, 0.5, 0)
@@ -269,24 +263,33 @@ function notifications:notify(options)
     end
 
     mainFrame.Visible = true
-    mainFrame:tween{
-        BackgroundTransparency = 0,
-        Position = UDim2.new(1, -20, 1, -10)
-    }
 
-    icon:tween{ImageTransparency = 0}
-    title:tween{TextTransparency = 0}
-    if description then description:tween{TextTransparency = 0} end
-    if acceptButton then
-        acceptButton:tween{BackgroundTransparency = 0, TextTransparency = 0}
-    end
-    if dismissButton then
-        dismissButton:tween{BackgroundTransparency = 0, TextTransparency = 0}
-    end
-
-    task.spawn(function()
-        task.wait(options.Length or 4)
-        if not closing then close() end
+    spawn(function()
+        mainFrame:tween{
+            BackgroundTransparency = 0,
+            Position = UDim2.new(1, -20, 1, -20)
+        }
+        task.wait(0.1)
+        if callbacksContainer then
+            callbacksContainer:tween{BackgroundTransparency = 0}
+        end
+        task.wait(0.15)
+        icon:tween{ImageTransparency = 0}
+        title:tween{TextTransparency = 0}
+        if description then description:tween{TextTransparency = 0} end
+        if acceptButton then
+            acceptButton:tween{BackgroundTransparency = 0, TextTransparency = 0}
+        end
+        if dismissButton then
+            dismissButton:tween{
+                BackgroundTransparency = 0,
+                TextTransparency = 0
+            }
+        end
+        if options.Length then
+            task.wait(options.Length)
+            if not closing then close() end
+        end
     end)
 end
 
