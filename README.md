@@ -1,6 +1,6 @@
 # Trip Hub Loader 🚀
 
-![Trip Hub Image](https://triphubscript.000webhostapp.com/img/Website/Loader.png)
+![Trip Hub Image](https://triphubscript.000webhostapp.com/img/Website/NewLoader.png)
 
 Trip Hub is an advanced script that works across many Roblox games and is optimized for both mobile devices and PCs. Its goal is to enhance the gaming experience by offering various features and utilities.
 
