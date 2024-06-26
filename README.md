@@ -27,6 +27,7 @@ To ensure secure and controlled use of the script, Trip Hub uses a key system. F
 
 ![Trip Hub Image](https://triphubscript.000webhostapp.com/img/Website/KeySystemLoader.png)
 
+
 ## User Interface (UI)
 
 Trip Hub offers an intuitive and user-friendly interface. Here's a preview of the UI:
