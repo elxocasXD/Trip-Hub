@@ -25,8 +25,7 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/elxocasXD/Trip-Hub/ma
 
 To ensure secure and controlled use of the script, Trip Hub uses a key system. Follow the [key system tutorial](https://www.youtube.com/watch?v=mkRQHeuHBn8) to obtain and use your key.
 
-![Trip Hub Image](https://triphubscript.000webhostapp.com/img/Website/KeySystemLoader.png)
-
+![Trip Hub Image](https://triphubscript.000webhostapp.com/img/Website/NewKeySystem.png)
 
 ## User Interface (UI)
 
