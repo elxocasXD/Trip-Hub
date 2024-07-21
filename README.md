@@ -1,6 +1,6 @@
 # Trip Hub Loader 🚀
 
-![Trip Hub Image](https://triphubscript.000webhostapp.com/img/Website/NewLoader.png)
+![Trip Hub Image](https://github.com/elxocasXD/Trip-Hub/blob/main/images/Loader.jpg?raw=true)
 
 Trip Hub is an advanced script that works across many Roblox games and is optimized for both mobile devices and PCs. Its goal is to enhance the gaming experience by offering various features and utilities.
 
@@ -25,13 +25,13 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/elxocasXD/Trip-Hub/ma
 
 To ensure secure and controlled use of the script, Trip Hub uses a key system. Follow the [key system tutorial](https://www.youtube.com/watch?v=mkRQHeuHBn8) to obtain and use your key.
 
-![Trip Hub Image](https://triphubscript.000webhostapp.com/img/Website/NewKeySystem.png)
+![Trip Hub Image](https://github.com/elxocasXD/Trip-Hub/blob/main/images/KeySystem.jpg?raw=true)
 
 ## User Interface (UI)
 
 Trip Hub offers an intuitive and user-friendly interface. Here's a preview of the UI:
 
-![Trip Hub Image](https://triphubscript.000webhostapp.com/img/Website/TripHubKavo.png)
+![Trip Hub Image](https://github.com/elxocasXD/Trip-Hub/blob/main/images/UILibrary.jpg?raw=true)
 
 ## Social and Community
 
@@ -40,7 +40,6 @@ Stay connected with the Trip Hub community and get support by joining our offici
 - [Discord Server](https://discord.com/invite/SKhamGzTdn)
 - [YouTube Channel](https://youtube.com/channel/UCRiszwo8e1FmlWUBhPRMUsQ)
 - [Roblox Group](https://www.roblox.com/groups/15601672/Trip-Hub#!/about)
-- [Official Website](https://triphubscript.000webhostapp.com)
 
 ## Contributing
 
