@@ -1,47 +1,53 @@
 local rs = game:GetService("RunService")
 local ts = game:GetService("TweenService")
-
 local function object(class, properties)
+
     local localObject = Instance.new(class)
 
-    pcall(function()
-        localObject.BorderSizePixel = 0
-        localObject.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        localObject.AutoButtonColor = false
-    end)
-
-    for property, value in next, properties do localObject[property] = value end
+    for property, value in next, properties do
+        pcall(function() localObject[property] = value end)
+    end
 
     local methods = {}
 
-    function methods:object(class, properties)
-        if not properties["Parent"] then properties.Parent = localObject end
-        return object(class, properties)
+    function methods:object(subClass, subProperties)
+        if not subProperties["Parent"] then 
+            subProperties.Parent = localObject 
+        end
+        return object(subClass, subProperties)
     end
 
     function methods:round(radius)
         radius = radius or 4
-        object("UICorner",
-               {Parent = localObject, CornerRadius = UDim.new(0, radius)})
+        object("UICorner", {
+            Parent = localObject,
+            CornerRadius = UDim.new(0, radius)
+        })
         return methods
     end
 
     function methods:tween(mutations)
-        ts:Create(localObject, TweenInfo.new(0.3), mutations):Play()
+        if ts then
+            ts:Create(localObject, TweenInfo.new(0.3), mutations):Play()
+        else
+            warn("TweenService no está definido.")
+        end
     end
 
     methods.AbsoluteObject = localObject
 
     return setmetatable(methods, {
-        __index = function(_, k) return localObject[k] end,
-        __newindex = function(_, k, v) localObject[k] = v end
+        __index = function(_, k) 
+            return localObject[k] 
+        end,
+        __newindex = function(_, k, v) 
+            localObject[k] = v 
+        end
     })
 end
 
-local gui = object("ScreenGui", {
-    Parent = (rs:IsStudio() and game.Players.LocalPlayer.PlayerGui) or
-        game.CoreGui
-})
+
+local gui = object("ScreenGui", {Parent = game:WaitForChild("CoreGui")})
 
 local notifications = {
     theme = "dark",
@@ -80,8 +86,8 @@ function notifications:notify(options)
         BackgroundTransparency = 1
     }):round()
 
-    game:GetService('RunService').Heartbeat:Connect(function()
-        mainFrame.BackgroundColor3 = theme.Main
+    game:GetService('RunService').RenderStepped:Connect(function()
+    mainFrame.BackgroundColor3 = theme.Main
     end)
 
     local content = mainFrame:object("Frame", {
@@ -120,7 +126,7 @@ function notifications:notify(options)
             Font = Enum.Font.SourceSans,
             TextSize = 18,
             Position = UDim2.new(0, 60, 0, 35),
-            Size = UDim2.new(1, -70, 0, 0), -- Size will be set later
+            Size = UDim2.new(1, -70, 0, 0), 
             TextXAlignment = Enum.TextXAlignment.Left,
             BackgroundTransparency = 1,
             Text = options.Description,
@@ -129,7 +135,6 @@ function notifications:notify(options)
             TextTransparency = 1
         })
 
-        -- Calculate the required size for the description
         local descriptionHeight = game:GetService("TextService"):GetTextSize(
                                       options.Description, 18,
                                       Enum.Font.SourceSans, Vector2.new(
@@ -249,7 +254,6 @@ function notifications:notify(options)
 
     self.closeOpened = close
 
-    -- Adjust the mainFrame size based on the description size
     if description then
         mainFrame.Size = UDim2.fromOffset(math.clamp(70 +
                                                          description.TextBounds
@@ -283,7 +287,7 @@ function notifications:notify(options)
     if dismissButton then
         dismissButton:tween{BackgroundTransparency = 0, TextTransparency = 0}
     end
-
+    
     task.spawn(function()
         task.wait(options.Length or 4)
         if not closing then close() end
@@ -295,3 +299,4 @@ function notifications:notification(options) self:notify(options) end
 function notifications:message(options) self:notify(options) end
 
 return notifications
+
